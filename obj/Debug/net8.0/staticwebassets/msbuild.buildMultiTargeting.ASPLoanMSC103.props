@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ASPLoanMSC103.props" />
+</Project>

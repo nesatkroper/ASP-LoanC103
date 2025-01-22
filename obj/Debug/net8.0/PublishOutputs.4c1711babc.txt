@@ -1,0 +1,7 @@
+D:\T6Y3\ASP.NET Core\ASPLoanMSC103\ASPLoanMSC103\obj\Debug\net8.0\PubTmp\Out\ASPLoanMSC103.exe
+D:\T6Y3\ASP.NET Core\ASPLoanMSC103\ASPLoanMSC103\obj\Debug\net8.0\PubTmp\Out\appsettings.Development.json
+D:\T6Y3\ASP.NET Core\ASPLoanMSC103\ASPLoanMSC103\obj\Debug\net8.0\PubTmp\Out\appsettings.json
+D:\T6Y3\ASP.NET Core\ASPLoanMSC103\ASPLoanMSC103\obj\Debug\net8.0\PubTmp\Out\ASPLoanMSC103.dll
+D:\T6Y3\ASP.NET Core\ASPLoanMSC103\ASPLoanMSC103\obj\Debug\net8.0\PubTmp\Out\ASPLoanMSC103.deps.json
+D:\T6Y3\ASP.NET Core\ASPLoanMSC103\ASPLoanMSC103\obj\Debug\net8.0\PubTmp\Out\ASPLoanMSC103.runtimeconfig.json
+D:\T6Y3\ASP.NET Core\ASPLoanMSC103\ASPLoanMSC103\obj\Debug\net8.0\PubTmp\Out\ASPLoanMSC103.pdb
