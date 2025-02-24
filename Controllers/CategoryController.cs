@@ -65,7 +65,7 @@ namespace ASPLoanMSC103.Controllers
             if (!IsCategoryExist(loanCategoryId)) return NotFound();
 
             using var db = database.CreateConnection();
-            var sql = @"UPDATE LoanCategories SET LoanCategoryCode = @LoanCategoryCode, Description = @Description, DesInKhmer = @DesInKhmer, Code = @Code, EditSeq = @EditSeq + 1, ModifiedDT = GETDATE(), IsAction = @IsAction WHERE LoanCategoryID = @loanCategoryId;";
+            var sql = @"UPDATE LoanCategories SET LoanCategoryCode = @LoanCategoryCode, Description = @Description, DesInKhmer = @DesInKhmer, Code = @Code, EditSeq = EditSeq + 1, ModifiedDT = GETDATE(), IsActive = @IsActive WHERE LoanCategoryID = @loanCategoryId;";
 
             int rowEffection = db.Execute(sql, new
             {

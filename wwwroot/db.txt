@@ -1,0 +1,1 @@
+    // "DefaultConnection": "Data Source=DESKTOP-BRGH90J\\SQLEXPRESS;Initial Catalog=ASPLoanC103;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False",

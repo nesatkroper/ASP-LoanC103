@@ -1,0 +1,59 @@
+@model IEnumerable<User>
+
+@{
+  ViewData["Title"] = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>User</h1>
+
+
+@if (Model is null)
+{
+  <h2>No Data ...</h2>
+}
+else
+{
+
+  <div class="card rounded-4 p-2">
+    <table class="table table-striped round-3 table-sm">
+      <thead class="bg-secondary">
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var (item, index) in Model.Select((value, i) => (value, i)))
+        {
+          <tr>
+            <td>@(index + 1)</td>
+            <td>@item.UserName</td>
+            <td>@item.Password</td>
+            <td>@item.Email</td>
+            <td>
+              <div class="dropdown rounded-4">
+                <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+                <ul class="dropdown-menu rounded-4">
+                  <li><a class="dropdown-item" href="@Url.Action("Details", "User", new {id = item.UserID})"><i
+                        class="fas fa-info-circle mr-2"></i>Details</a>
+                  </li>
+                  <li><a class="dropdown-item text-warning" href="@Url.Action("PutUser", "User", new {id = item.UserID})"><i
+                        class="fas fa-pen mr-2"></i>Edit</a>
+                  </li>
+                  <li><a class="dropdown-item text-danger" href="@Url.Action("Delete", "User", new {id = item.UserID})"><i
+                        class="fas fa-trash mr-2"></i>Delete</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+}

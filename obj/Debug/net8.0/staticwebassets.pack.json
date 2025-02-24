@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\T6Y3\\ASP.NET Core\\ASPLoanMSC103\\ASPLoanMSC103\\wwwroot\\db.txt",
+      "PackagePath": "staticwebassets\\db.txt"
+    },
+    {
       "Id": "D:\\T6Y3\\ASP.NET Core\\ASPLoanMSC103\\ASPLoanMSC103\\wwwroot\\lib\\admin-lte\\css\\adminlte.css",
       "PackagePath": "staticwebassets\\lib\\admin-lte\\css\\adminlte.css"
     },

@@ -3,6 +3,88 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
+      "Route": "db.ra9z64fiho.txt",
+      "AssetFile": "db.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "244"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 06:45:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ra9z64fiho"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ="
+        },
+        {
+          "Name": "label",
+          "Value": "db.txt"
+        }
+      ]
+    },
+    {
+      "Route": "db.txt",
+      "AssetFile": "db.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "244"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 06:45:16 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ="
+        }
+      ]
+    },
+    {
       "Route": "lib/admin-lte/css/adminlte.css",
       "AssetFile": "lib/admin-lte/css/adminlte.css",
       "Selectors": [],

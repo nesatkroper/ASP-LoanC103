@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JgBJLeNOjQUbYmMuHa/BaScmN2trU4xL3v1GIUrYkBQ=",
+  "Hash": "WLPMQmnJI7CC1TW1v7YHUG1dRfqdHiuipFDhmFyurNc=",
   "Source": "ASPLoanMSC103",
   "BasePath": "_content/ASPLoanMSC103",
   "Mode": "Default",
@@ -16,6 +16,27 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "D:\\T6Y3\\ASP.NET Core\\ASPLoanMSC103\\ASPLoanMSC103\\wwwroot\\db.txt",
+      "SourceId": "ASPLoanMSC103",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\T6Y3\\ASP.NET Core\\ASPLoanMSC103\\ASPLoanMSC103\\wwwroot\\",
+      "BasePath": "_content/ASPLoanMSC103",
+      "RelativePath": "db#[.{fingerprint}]?.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ra9z64fiho",
+      "Integrity": "LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\db.txt"
+    },
     {
       "Identity": "D:\\T6Y3\\ASP.NET Core\\ASPLoanMSC103\\ASPLoanMSC103\\wwwroot\\lib\\admin-lte\\css\\adminlte.css",
       "SourceId": "ASPLoanMSC103",
@@ -5436,6 +5457,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "db.ra9z64fiho.txt",
+      "AssetFile": "D:\\T6Y3\\ASP.NET Core\\ASPLoanMSC103\\ASPLoanMSC103\\wwwroot\\db.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "244"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 06:45:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ra9z64fiho"
+        },
+        {
+          "Name": "label",
+          "Value": "db.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ="
+        }
+      ]
+    },
+    {
+      "Route": "db.txt",
+      "AssetFile": "D:\\T6Y3\\ASP.NET Core\\ASPLoanMSC103\\ASPLoanMSC103\\wwwroot\\db.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "244"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 23 Jan 2025 06:45:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LSBfdic5VEzuYnEJwz7eqpt+NANtiZyn66uXU5LJGpQ="
+        }
+      ]
+    },
     {
       "Route": "lib/admin-lte/css/adminlte.css",
       "AssetFile": "D:\\T6Y3\\ASP.NET Core\\ASPLoanMSC103\\ASPLoanMSC103\\wwwroot\\lib\\admin-lte\\css\\adminlte.css",

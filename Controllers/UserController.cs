@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ASPLoanMSC103.Controllers
 {
-    public class UserController : ControllerBase
+    public class UserController : Controller
     {
         private readonly AppDbContext _context;
 
@@ -15,48 +15,76 @@ namespace ASPLoanMSC103.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<IActionResult> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            try
+            {
+                var users = await _context.Users.ToListAsync();
+                return View(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-
-            if (user == null)
+            try
             {
-                return NotFound();
-            }
+                var user = await _context.Users.FindAsync(id);
 
-            return user;
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                return user;
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
         public async Task<ActionResult<User>> PostUser([FromBody] User user)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUser), new { id = user.UserID }, user);
+                return CreatedAtAction(nameof(GetUser), new { id = user.UserID }, user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-
 
         [HttpPut("{id}")]
         public async Task<ActionResult<User>> PutUser(int id, [FromBody] User user)
         {
-            if (id != user.UserID)
-                return BadRequest("User ID in URL does not match the request body.");
+            try
+            {
+                if (id != user.UserID)
+                    return BadRequest("User ID in URL does not match the request body.");
 
-            var existingUser = await _context.Users.FindAsync(id);
-            if (existingUser is null)
-                return NotFound();
+                var existingUser = await _context.Users.FindAsync(id);
+                if (existingUser is null)
+                    return NotFound();
 
 
-            _context.Entry(user).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+                _context.Entry(user).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
 
-            return NoContent();
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
