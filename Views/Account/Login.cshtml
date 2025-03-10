@@ -1,38 +1,141 @@
 @model LoginRequest
-
 @{
   ViewData["Title"] = "Login";
+  Layout = null; // Assuming you want a standalone page like the Register view
 }
 
-<h3>Login</h3>
-<hr />
-<div class="row">
-  <div class="col-md-4">
-    <form asp-action="Login" asp-route-ReturnUrl="@ViewBag.ReturnUrl">
-      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-      <div class="form-group">
-        <label asp-for="UserName" class="control-label"></label>
-        <input asp-for="UserName" class="form-control" />
-        <span asp-validation-for="UserName" class="text-danger"></span>
-      </div>
-      <div class="form-group">
-        <label asp-for="Password" class="control-label"></label>
-        <input asp-for="Password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-      </div>
-      <div class="form-group form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" asp-for="RememberMe" />
-          @Html.DisplayNameFor(model => model.RememberMe)
-        </label>
-      </div>
-      <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-      </div>
-    </form>
-  </div>
-</div>
+<!-- Consolidated CSS imports (same as Register page) -->
+<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+<link rel="stylesheet" href="~/lib/admin-lte/css/adminlte.min.css" />
 
-<div>
-  <a asp-action="Register">No Account yet!</a>
+<!-- Custom styles -->
+<style>
+  .login-container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 50px;
+  }
+
+  .card {
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .card-header {
+    background: linear-gradient(45deg, #007bff, #00b7ff);
+    color: white;
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+  }
+
+  .card-body {
+    padding: 30px;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control {
+    border-radius: 8px;
+    padding: 14px 12px;
+    /* Increased padding for taller inputs */
+    font-size: 1.1rem;
+    /* Slightly larger font for better readability */
+    height: 50px;
+    /* Taller height to match Register page */
+    transition: all 0.3s;
+    border: 1px solid #ced4da;
+  }
+
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+
+  /* Custom checkbox styling */
+  .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .form-check-label {
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .btn-primary {
+    padding: 12px 30px;
+    /* Match the Register button */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 15px rgba(0, 123, 255, 0.3);
+  }
+
+  .register-link {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    color: #007bff;
+    font-size: 1rem;
+  }
+</style>
+
+<div class="login-container">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="mb-0">Login to Your Account</h5>
+    </div>
+    <div class="card-body">
+      <form asp-action="Login" asp-route-ReturnUrl="@ViewBag.ReturnUrl">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="form-group">
+          <label asp-for="UserName" class="control-label mb-1">Username</label>
+          <input asp-for="UserName" class="form-control" placeholder="Enter username" />
+          <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label asp-for="Password" class="control-label mb-1">Password</label>
+          <input asp-for="Password" class="form-control" placeholder="Enter password" type="password" />
+          <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" asp-for="RememberMe" />
+            @Html.DisplayNameFor(model => model.RememberMe)
+          </label>
+        </div>
+
+        <div class="form-group text-center">
+          <input type="submit" value="Login" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <a asp-action="Register" class="register-link">Don't have an account? Register</a>
 </div>

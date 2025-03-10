@@ -4,9 +4,9 @@ namespace ASPLoanMSC103.Controllers
 {
   public class HomeController : Controller
   {
-    public ViewResult Index()
+    public IActionResult Index()
     {
-      return View();
+      return RedirectToAction("Login", "Account");
     }
   }
 }

@@ -3,10 +3,11 @@
     ViewData["Title"] = "Create Department";
 }
 
-<h4>Department</h4>
-<hr />
+<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/css/index.css" rel="stylesheet" />
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Create" method="post">
             <div class="form-group">
                 <label asp-for="DepartmentName" class="control-label"></label>

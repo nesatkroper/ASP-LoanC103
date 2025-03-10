@@ -41,7 +41,7 @@ namespace ASPLoanMSC103.Controllers
                 ModelState.AddModelError("", loginResult.Message);
                 return View(req);
             }
-            return LocalRedirect(ReturnUrl);
+            return RedirectToAction("Index", "Employee");
         }
 
         public IActionResult Register()

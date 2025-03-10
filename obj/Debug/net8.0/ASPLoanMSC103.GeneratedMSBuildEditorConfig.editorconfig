@@ -56,24 +56,56 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxDcmVhdGUuY3NodG1s
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZWxldGUuY3NodG1s
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Customer/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcX0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZXRhaWxzLmNzaHRtbA==
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Customer/_Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcX0RldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxFZGl0LmNzaHRtbA==
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Customer/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcX0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxfQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/_Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxfRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/_Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxfRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Department/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxfRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Employee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Employee/_Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcX0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Employee/_Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcX0RldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Employee/_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcX0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Home/Index.cshtml]

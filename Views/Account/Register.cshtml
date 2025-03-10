@@ -1,50 +1,176 @@
-@model RegisterRequest 
-@{ 
-  ViewData["Title"] = "Register";
+@model RegisterRequest
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
 }
-<h5>Register</h5> 
-<hr /> 
-<div class="row"> 
-    <div class="col-md-4"> 
-        <form asp-action="Register"> 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
-            <div class="form-group"> 
-                <label asp-for="UserName" class="control-label"></label> 
-                <input asp-for="UserName" class="form-control" /> 
-                <span asp-validation-for="UserName" class="text-danger"></span> 
-            </div> 
-            <div class="form-group"> 
-                <label asp-for="Email" class="control-label"></label> 
-                <input asp-for="Email" class="form-control" /> 
-                <span asp-validation-for="Email" class="text-danger"></span> 
-            </div> 
-            <div class="form-group"> 
-                <label asp-for="RoleName" class="control-label"></label> 
-                <select asp-for="RoleName" 
-                        asp-items="@Html.GetEnumSelectList(typeof(RoleEnum))" 
-                        class="custom-select"> 
-                    <option value="" style="display:none;">Select Role</option> 
-                </select> 
-                <span asp-validation-for="RoleName" class="text-danger"></span> 
-            </div> 
-            <div class="form-group"> 
-                <label asp-for="Password" class="control-label"></label> 
-                <input asp-for="Password" class="form-control" /> 
-                <span asp-validation-for="Password" class="text-danger"></span> 
-            </div> 
-            <div class="form-group"> 
-                <label asp-for="ConfirmPassword" class="control-label"></label> 
-                <input asp-for="ConfirmPassword" class="form-control" /> 
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span> 
-            </div> 
-            
-            <div class="form-group"> 
-                <input type="submit" value="Create" class="btn btn-primary" /> 
-            </div> 
-        </form> 
-    </div> 
-</div> 
- 
-<div> 
-    <a asp-action="Login">I have Account</a> 
-</div> 
+
+<!-- Consolidated CSS imports -->
+<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+<link rel="stylesheet" href="~/lib/admin-lte/css/adminlte.min.css" />
+
+<!-- Custom styles -->
+<style>
+    .register-container {
+        max-width: 450px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .card-header {
+        background: linear-gradient(45deg, #007bff, #00b7ff);
+        color: white;
+        border-radius: 10px 10px 0 0;
+        padding: 15px 20px;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding: 14px 12px;
+        /* Increased padding for taller inputs */
+        font-size: 1.1rem;
+        /* Slightly larger font for better readability */
+        height: 50px;
+        /* Explicit height for consistency */
+        transition: all 0.3s;
+        border: 1px solid #ced4da;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Custom select styling */
+    .custom-select-wrapper {
+        position: relative;
+    }
+
+    .custom-select-wrapper::after {
+        content: '\f078';
+        /* Font Awesome chevron-down icon */
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+        pointer-events: none;
+        font-size: 1.1rem;
+    }
+
+    .form-control-select {
+        appearance: none;
+        /* Remove default browser styling */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding-right: 40px !important;
+        /* Space for the custom arrow */
+        height: 50px;
+        /* Match the taller height of other inputs */
+        line-height: normal;
+        /* Ensure text aligns properly */
+    }
+
+    .form-control-select option[disabled] {
+        color: #6c757d;
+        /* Lighter color for placeholder */
+    }
+
+    .form-control-select:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    .btn-primary {
+        padding: 12px 30px;
+        /* Slightly taller button to match inputs */
+        border-radius: 8px;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 15px rgba(0, 123, 255, 0.3);
+    }
+
+    .login-link {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+        color: #007bff;
+        font-size: 1rem;
+    }
+</style>
+
+<div class="register-container">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Create New Account</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label mb-1">Username</label>
+                    <input asp-for="UserName" class="form-control" placeholder="Enter username" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label mb-1">Email</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="RoleName" class="control-label mb-1">Role</label>
+                    <div class="custom-select-wrapper">
+                        <select asp-for="RoleName" asp-items="@Html.GetEnumSelectList(typeof(RoleEnum))"
+                            class="form-control form-control-select">
+                            <option value="" disabled selected>Select a role</option>
+                        </select>
+                    </div>
+                    <span asp-validation-for="RoleName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label mb-1">Password</label>
+                    <input asp-for="Password" class="form-control" placeholder="Enter password" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="control-label mb-1">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password"
+                        type="password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Register" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <a asp-action="Login" class="login-link">Already have an account? Login</a>
+</div>

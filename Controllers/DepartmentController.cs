@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 
 namespace ASPLoanMSC103.Controllers
 {
-    [Route("[controller]")]
     public class DepartmentController : Controller
     {
         private readonly AppDbContext _context;
@@ -31,6 +30,22 @@ namespace ASPLoanMSC103.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Department dep)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Departments.Add(dep);
+                int insert = _context.SaveChanges();
+                return insert > 0 ? RedirectToAction(nameof(Index)) : View();
+            }
+            else
+            {
+                ModelState.AddModelError("", "Failed to save the Department. Please try again.");
+            }
+            return View(dep);
         }
 
         [HttpPost]
