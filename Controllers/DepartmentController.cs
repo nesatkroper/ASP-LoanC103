@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using ASPLoanMSC103.Data;
 using ASPLoanMSC103.Model;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace ASPLoanMSC103.Controllers
 {
@@ -19,88 +13,100 @@ namespace ASPLoanMSC103.Controllers
             _context = context;
         }
 
+        // GET: /Department/
         public IActionResult Index()
         {
             var dept = _context.Departments.ToList();
             return View(dept);
         }
 
-
+        // GET: /Department/Create
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST: /Department/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Department dep)
         {
             if (ModelState.IsValid)
             {
                 _context.Departments.Add(dep);
                 int insert = _context.SaveChanges();
-                return insert > 0 ? RedirectToAction(nameof(Index)) : View();
-            }
-            else
-            {
-                ModelState.AddModelError("", "Failed to save the Department. Please try again.");
+                if (insert > 0)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                ModelState.AddModelError("", "Failed to save the department. Please try again.");
             }
             return View(dep);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult ActionName([Bind("DepartmentName", "Description")] Department dept)
-        {
-            _context.Departments.Add(dept);
-            int insert = _context.SaveChanges();
-            return insert > 0 ? RedirectToAction(nameof(Index)) : View();
-        }
-
+        // GET: /Department/Edit/1
         [HttpGet]
         public IActionResult Edit(int id)
         {
             var dept = _context.Departments.Find(id);
-            if (dept is null) return NotFound();
-            return View("Edit", dept);
+            if (dept == null) return NotFound();
+            return View(dept);
         }
 
+        // POST: /Department/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Eidt(Department dept)
+        public IActionResult Edit([Bind("ID, DepartmentName, Description")] Department dept)
         {
-            _context.Departments.Update(dept);
-            int insert = _context.SaveChanges();
-            return insert > 0 ? RedirectToAction(nameof(Index)) : View();
+            if (ModelState.IsValid)
+            {
+                _context.Departments.Update(dept);
+                int insert = _context.SaveChanges();
+                if (insert > 0)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                ModelState.AddModelError("", "Failed to update the department. Please try again.");
+            }
+            return View(dept);
         }
 
+        // GET: /Department/Details/1
         [HttpGet]
         public IActionResult Details(int id)
         {
             var dept = _context.Departments.Find(id);
-            if (dept is null) return NotFound();
-            return View("Details", dept);
+            if (dept == null) return NotFound();
+            return View(dept);
         }
 
+        // GET: /Department/Delete/1
         [HttpGet]
         public IActionResult Delete(int id)
         {
             var dept = _context.Departments.Find(id);
-            if (dept is null) return NotFound();
-            return View("Delete", dept);
+            if (dept == null) return NotFound();
+            return View(dept);
         }
 
+        // POST: /Department/Delete/1
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
         public IActionResult ConfirmDelete(int id)
         {
             var dept = _context.Departments.Find(id);
-            if (dept is null) return NotFound();
+            if (dept == null) return NotFound();
 
             _context.Departments.Remove(dept);
             int insert = _context.SaveChanges();
-            return insert > 0 ? RedirectToAction(nameof(Index)) : View();
+            if (insert > 0)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            ModelState.AddModelError("", "Failed to delete the department. Please try again.");
+            return View(dept);
         }
     }
 }

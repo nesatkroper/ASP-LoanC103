@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASPLoanMSC103.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250310112629_update")]
-    partial class update
+    [Migration("20250311020337_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
