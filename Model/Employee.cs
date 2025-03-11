@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ASPLoanMSC103.Model
 {
-    public class Employee : BaseEntity
+    public sealed class Employee : BaseEntity
     {
         public int EmployeeId { get; set; }
 

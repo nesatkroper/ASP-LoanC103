@@ -2,7 +2,7 @@
 
 namespace ASPLoanMSC103.Model
 {
-    public class Department
+    public sealed class Department
     {
         public int ID { get; set; }
         public required string DepartmentName { get; set; }

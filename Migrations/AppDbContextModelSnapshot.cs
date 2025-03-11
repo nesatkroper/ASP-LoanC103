@@ -22,6 +22,133 @@ namespace ASPLoanMSC103.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ASPLoanC103.Model.Loan", b =>
+                {
+                    b.Property<Guid?>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Installment")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("InterestRate")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LoanCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("LoanId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("PaymentMethod")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Principle")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("RegsiterDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("TransactionId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("LoanCategoryId");
+
+                    b.ToTable("Loans");
+                });
+
+            modelBuilder.Entity("ASPLoanC103.Model.LoanSchedule", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int>("Days")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("InterestAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LineSeq")
+                        .HasColumnType("int");
+
+                    b.Property<long>("LoanId")
+                        .HasColumnType("bigint");
+
+                    b.Property<Guid?>("LoanTransactionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("OutStanding")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PaidPrinciple")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalPayment")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LoanTransactionId");
+
+                    b.ToTable("loanSchedules");
+                });
+
+            modelBuilder.Entity("ASPLoanC103.Model.Transactions", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset?>("Created")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset?>("TransactionDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<int?>("TransactionTypes")
+                        .HasColumnType("int");
+
+                    b.Property<DateTimeOffset?>("Updated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetimeoffset")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("transactions", (string)null);
+                });
+
             modelBuilder.Entity("ASPLoanMSC103.Model.Customer", b =>
                 {
                     b.Property<int>("CustomerId")
@@ -229,6 +356,46 @@ namespace ASPLoanMSC103.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("ASPLoanC103.Model.Loan", b =>
+                {
+                    b.HasOne("ASPLoanMSC103.Model.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ASPLoanMSC103.Model.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ASPLoanMSC103.Model.LoanCategory", "LoanCategory")
+                        .WithMany()
+                        .HasForeignKey("LoanCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ASPLoanC103.Model.Transactions", null)
+                        .WithOne("Loan")
+                        .HasForeignKey("ASPLoanC103.Model.Loan", "TransactionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("LoanCategory");
+                });
+
+            modelBuilder.Entity("ASPLoanC103.Model.LoanSchedule", b =>
+                {
+                    b.HasOne("ASPLoanC103.Model.Loan", null)
+                        .WithMany("LoanSchedules")
+                        .HasForeignKey("LoanTransactionId");
+                });
+
             modelBuilder.Entity("ASPLoanMSC103.Model.Employee", b =>
                 {
                     b.HasOne("ASPLoanMSC103.Model.Department", "Department")
@@ -238,6 +405,16 @@ namespace ASPLoanMSC103.Migrations
                         .IsRequired();
 
                     b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("ASPLoanC103.Model.Loan", b =>
+                {
+                    b.Navigation("LoanSchedules");
+                });
+
+            modelBuilder.Entity("ASPLoanC103.Model.Transactions", b =>
+                {
+                    b.Navigation("Loan");
                 });
 #pragma warning restore 612, 618
         }

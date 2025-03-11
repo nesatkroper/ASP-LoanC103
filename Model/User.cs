@@ -1,6 +1,6 @@
 namespace ASPLoanMSC103.Model
 {
-    public class User
+    public sealed class User
     {
         public int UserID { get; set; }
         public string? UserName { get; set; }
