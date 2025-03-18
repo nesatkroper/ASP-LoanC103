@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASPLoanMSC103")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ae70a47010f773c946419eab670c9354d6862db")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0862e0b8543b6075553274ff5522c52435623b6")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASPLoanMSC103")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASPLoanMSC103")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

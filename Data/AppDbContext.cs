@@ -27,7 +27,10 @@ namespace ASPLoanMSC103.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Loan> Loans { get; set; }
-        public DbSet<LoanSchedule> loanSchedules { get; set; }
-        public DbSet<Transactions> transactions { get; set; }
+        public DbSet<LoanSchedule> LoanSchedules { get; set; }
+        public DbSet<Transactions> Transactions { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<Role> Roles { get; set; }
     }
 }

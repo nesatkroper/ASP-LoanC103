@@ -16,18 +16,13 @@ namespace ASPLoanC103.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
-
         public TransactionTypes? TransactionTypes { get; set; }
-
         public string? Description { get; set; }
-
         public DateTimeOffset? TransactionDate { get; set; }
-
         public DateTimeOffset? Created { get; set; }
-
         public DateTimeOffset? Updated { get; set; }
-
         public Loan? Loan { get; set; }
+        // public loanpa MyProperty { get; set; }
     }
 }
 

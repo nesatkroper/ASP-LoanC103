@@ -10,9 +10,7 @@ namespace ASPLoanMSC103.Model
             IsSuccess = isSuccess;
             Message = message;
         }
-
         public bool IsSuccess { get; set; } = false;
-
         public string Message { get; set; } = string.Empty;
     }
 }

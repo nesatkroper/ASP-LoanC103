@@ -1,0 +1,117 @@
+@model ASPLoanC103.Model.Loan;
+@{
+}
+ViewData["Title"] = "Details";
+<table class="table table-sm w-100 table-bordered table-light">
+  <tbody>
+    <tr>
+      <th class="w-25">@Html. DisplayNameFor(model => model. Principle)</th>
+      <td class="bg-white">@Html.DisplayFor(model => model.Principle)</td>
+    </tr>
+    <tr>
+      <th>@Html.DisplayNameFor(model => model.InterestRate)</th>
+      <td class="bg-white">@Html. DisplayFor(model => model. InterestRate)</td>
+    </tr>
+    <tr>
+      <th>@Html.DisplayName For(model => model. RegsiterDate)</th>
+      <td>@Html.DisplayFor(model => model.RegsiterDate)</td>
+    </tr>
+    <tr>
+      <th>@Html.DisplayName For(model => model.LoanCategory!.Description)</th>
+      <td class="bg-white">@Html.DisplayFor(model => model.LoanCategory!.Description)</td>
+    </tr>
+    <tr>
+      <th>@Html.DisplayName For(model => model.LoanCategory!.Description)</th>
+      <td class="bg-white">@Html.DisplayFor(model => model.LoanCategory!.Description)</td>
+    </tr>
+    <tr>
+      <th>@Html.DisplayName For(model => model. PaymentMethod)</th>
+      <td class="bg-white">@Html.DisplayFor(model => model.PaymentMethod)</td>
+    </tr>
+    <tr>
+      <th>@Html.DisplayName For(model => model.IsActive)</th>
+      <td class="bg-white">@Html. DisplayFor(model => model. IsActive)</td>
+    </tr>
+    <tr>
+      <th>@Html.DisplayName For(model => model.Description)</th>
+      <td class="bg-white">@Html.DisplayFor(model => model. Description)</td>
+    </tr>
+  </tbody>
+</table>
+<table class="table table-sm w-100">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Date</th>
+      <th>Principle</th>
+      <th>Interest</th>
+      <th>Period</th>
+      <th>OutStanding</th>
+      <th>Paid</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model.LoanSchedules)
+    {
+      <tr>
+        <td>@item?.LineSeq</td>
+        <td>@item?.PaymentDate</td>
+        <td>@item?.PaidPrinciple</td>
+        <td>@item?.InterestAmount</td>
+        <td>@item?.TotalPayment</td>
+        <td>@item?.OutStanding</td>
+        <td><input asp-for="@item!. IsPaid" disabled /></td>
+        <td>
+          <button id="@item!.Id" disabled="@(item.IsPaid)" onclick="GetSchedule(@item?.LoanId, @item?.Id)"
+            class="btn btn-sm @(item!. IsPaid ? "btn-success" : "btn-danger")">
+            @item!.IsPaid ? "Paid" : "Recieve")
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+<div>
+  <a asp-action="Index">Back to List</a>
+</div>
+<div class="modal" tabindex="-1" id="exampleModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Recieve Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria- label="Close"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-secondary" data-bs- dismiss="modal">Close</button>
+        <button type="button" id="save" class="btn btn-sm btn-danger">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+@section Scripts {
+  <script>
+    $(document).ready(function () {
+      $("#save").click(function () {
+        var data = $("#form1").serialize();
+        console.log(data)
+      });
+    });
+    function GetSchedule(id, scheduleId) {
+      let modal = bootstrap.Modal.getOrCreateInstance(document.querySelector('#exampleModal'), {
+        keyboard: false,
+        backdrop: 'static'
+      });
+      $.get("/Loan/PaymentSchedule",
+        {
+          id,
+          scheduleId
+        }, function (data) {
+          $('#exampleModal .modal-body').html(data);
+          modal.show;
+        });
+    }
+  </script>
+}

@@ -1,0 +1,182 @@
+@model ASPLoanC103.Model.Loan;
+@{
+}
+
+ViewData["Title"] = "Create";
+
+<h4>Loan</h4>
+<hr />
+<form asp-action="Create" asp-route-customerId="@ViewBag.CustomerId">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-2 row">
+        <label asp-for="CustomerId" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            @if (ViewBag.CustomerId > 0)
+            {
+                <select disabled asp-for="CustomerId" class="form-select" asp-items="@ViewBag.Customers">
+                </select>
+            }
+            else
+            {
+                <select asp-for="CustomerId" class="form-select"></select>
+            }
+            <span asp-validation-for="CustomerId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="EmployeeId" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <select asp-for="EmployeeId" class="form-select"></select>
+            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="Principle" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input asp-for="Principle" class="form-control" />
+            <span asp-validation-for="Principle" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="InterestRate" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input asp-for="InterestRate" class="form-control" />
+            <span asp-validation-for="InterestRate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="Installment" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input asp-for="Installment" class="form-control" />
+            <span asp-validation-for="Installment" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="LoanCategoryId" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <select asp-for="LoanCategoryId" class="form-control" asp-items="ViewBag.Categories">
+            </select>
+            <span asp-validation-for="LoanCategoryId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="RegsiterDate" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input asp-for="RegsiterDate" class="form-control" value="@DateTime.Today.ToString("M/d/yyyy hh:mm")" />
+            <span asp-validation-for="RegsiterDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="PaymentMethod" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            @* <select asp-for="PaymentMethod" class="form-control" asp-items="@Html.GetEnumSelectList<PaymentMethod>()"> *@
+            </select>
+            <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="IsActive" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input asp-for="IsActive" />
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label asp-for="Description" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="mb-2">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <input type="button" value="Preview" class="btn btn-success" id="btnpreview" />
+    </div>
+</form>
+<div id="preview">
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#CustomerId").select2({
+                'placeholder': "Select a customer",
+                'allowClear': true,
+                ajax: {
+                    url: "/Loan/GetCustomers",
+                    contentType: "application/json; charset=utf-8",
+                    data: function (params) {
+                        var query =
+                        {
+                            term: params.term,
+                        };
+                        return query;
+                    },
+                    processResults: function (result) {
+                        return {
+                            results: $.map(result, function (item) {
+                                return {
+                                    id: item.customerId,
+                                    text: item.customerName
+                                };
+                            }),
+                        };
+                    }
+                }
+            });
+            $("#EmployeeId").select2({
+                'placeholder': "Select a Employee",
+                'allowClear': true,
+                ajax: {
+                    url: "@Url.ActionLink("GetEmployees", "Loan")",
+                    contentType: "application/json; charset=utf-8",
+                    data: function (params) {
+                        var query =
+                        {
+                            term: params.term,
+                        };
+                        return query;
+                    },
+                    processResults: function (result) {
+                        return {
+                            results: $.map(result, function (item) {
+                                return {
+                                    id: item.employeeId,
+                                };
+                                text: item.employeeName
+                            }),
+                        };
+                    }
+                }
+            });
+            setDateTime;
+            $("#btnpreview").click(function () {
+                $.ajax({
+                    url: "/Loan/Preview",
+                    type: "POST",
+                    data: $("form").serialize(),
+                    success: function (data) {
+                        $("#preview").html(data);
+                    }
+                });
+            });
+        });
+        function setDateTime() {
+            // Get the input element
+            var datetimeInput = document.getElementById('RegsiterDate');
+            // Get the current date and time
+            var now = new Date();
+            // Format the date and time for the input field
+            var year = now.getFullYear();
+            var month = String(now.getMonth() + 1).padStart(2, '0'); // Months are O-based
+            var day = String(now.getDate().padStart(2, '0');
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes().padStart(2, '0');
+            // Format: YYYY-MM-DDTHH:MM
+            var formattedDateTime = `${year}-${month}-${day}T${hours}: ${minutes}`;
+            // Set the value of the input field
+            datetimeInput.value = formattedDateTime;
+        }
+    </script>
+}

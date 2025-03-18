@@ -9,5 +9,7 @@ namespace ASPLoanMSC103.Model
         public string? RoleName { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
+
+        public ICollection<Permission> Permissions { get; set; }
     }
 }

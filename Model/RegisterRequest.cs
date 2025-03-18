@@ -23,7 +23,6 @@ namespace ASPLoanMSC103.Model
         [DataType(DataType.Password)]
         [StringLength(20, MinimumLength = 5, ErrorMessage = "{0} is at lease {2}")]
         public required string ConfirmPassword { get; set; }
-
         public string? RoleName { get; set; }
 
     }

@@ -7,7 +7,6 @@ namespace ASPLoanMSC103.Model
     public sealed class Employee : BaseEntity
     {
         public int EmployeeId { get; set; }
-
         [ForeignKey(nameof(Department))]
         public int DepartmentId { get; set; }
         public decimal? Salary { get; set; } = 0;

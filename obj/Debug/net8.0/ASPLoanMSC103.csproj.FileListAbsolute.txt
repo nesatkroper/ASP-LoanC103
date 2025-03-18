@@ -320,3 +320,4 @@ D:\ASP-LoanC103\obj\Debug\net8.0\refint\ASPLoanMSC103.dll
 D:\ASP-LoanC103\obj\Debug\net8.0\ASPLoanMSC103.pdb
 D:\ASP-LoanC103\obj\Debug\net8.0\ASPLoanMSC103.genruntimeconfig.cache
 D:\ASP-LoanC103\obj\Debug\net8.0\ref\ASPLoanMSC103.dll
+D:\T6Y3\ASP.NET Core\ASPLoanMSC103\ASPLoanMSC103\bin\Debug\net8.0\Newtonsoft.Json.dll
