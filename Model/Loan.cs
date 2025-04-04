@@ -2,9 +2,9 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ASPLoanMSC103.Model;
 
-namespace ASPLoanC103.Model
+
+namespace ASPLoanMSC103.Model
 {
     public class Loan
     {

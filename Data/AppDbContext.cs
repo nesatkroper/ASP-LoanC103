@@ -1,5 +1,5 @@
-using ASPLoanC103.Configurations;
-using ASPLoanC103.Model;
+
+using ASPLoanMSC103.Configurations;
 using ASPLoanMSC103.Model;
 using Microsoft.EntityFrameworkCore;
 

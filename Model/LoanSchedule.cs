@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace ASPLoanC103.Model
+namespace ASPLoanMSC103.Model
 {
     public sealed class LoanSchedule
     {

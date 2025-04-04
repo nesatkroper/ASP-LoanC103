@@ -1,6 +1,6 @@
 
 
-namespace ASLoanC103.Model.ViewModels
+namespace ASPLoanMSC103.Model.ViewModels
 {
     public class LoanViewModel
     {

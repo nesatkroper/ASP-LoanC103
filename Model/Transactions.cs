@@ -3,7 +3,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ASPLoanC103.Model
+namespace ASPLoanMSC103.Model
 {
     public enum TransactionTypes
     {

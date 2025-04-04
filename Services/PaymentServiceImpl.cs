@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ASPLoanC103.Model;
+
 using ASPLoanMSC103.Data;
 using ASPLoanMSC103.Model;
 

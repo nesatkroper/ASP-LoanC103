@@ -1,13 +1,13 @@
 
 
-using ASLoanC103.Model.ViewModels;
-using ASPLoanC103.Extensions;
-using ASPLoanC103.Model;
 using ASPLoanMSC103.Data;
+using ASPLoanMSC103.Extensions;
 using ASPLoanMSC103.Model;
+using ASPLoanMSC103.Model.ViewModels;
+using ASPLoanMSC103.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace ASPLoanC103.Services
+namespace ASPLoanMSC103.Services
 {
     public class LoanServiceImpl : ILoanServices
     {

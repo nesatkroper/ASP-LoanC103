@@ -4,7 +4,7 @@
 
 using Newtonsoft.Json;
 
-namespace ASPLoanC103.Extensions
+namespace ASPLoanMSC103.Extensions
 {
     public class DtRequest
     {

@@ -1,9 +1,9 @@
 
-using ASPLoanC103.Model;
+using ASPLoanMSC103.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ASPLoanC103.Configurations
+namespace ASPLoanMSC103.Configurations
 {
     public class TransactionsConfigurations : IBaseEntityTypeConfigurations<Transactions>
     {

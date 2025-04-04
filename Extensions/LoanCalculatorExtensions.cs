@@ -1,9 +1,8 @@
 
 
-using ASPLoanC103.Model;
 using ASPLoanMSC103.Model;
 
-namespace ASPLoanC103.Extensions
+namespace ASPLoanMSC103.Extensions
 {
     public class LoanCalculatorExtensions
     {
