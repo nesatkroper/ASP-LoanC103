@@ -1,36 +1,96 @@
-@using ASLoanC103.Model.ViewModels
-
+﻿@model IEnumerable<ASPLoanC103.Model.Loan>
 
 @{
-  ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Index</h1>
-<a asp-action="Create">New</a>
-<table class="table table-sm w-100 table-hover" id="loanTable">
-  <thead>
-    <tr>
-      <th>@nameof(LoanViewModel.LoanId)</th>
-      <th>@nameof(LoanViewModel. RegisterDate)</th>
-      <th>@nameof(LoanViewModel. Principle)</th>
-      <th>@nameof(LoanViewModel.InterestRate)</th>
-      <th>@nameof(LoanViewModel.PaymentMethod)</th>
-      <th>@nameof(LoanViewModel.Description)</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
 
-@section Scripts {
-
-  script> < $(document).ready(function(){ $("#loanTable"). DataTable({ "processing" : true, "serverSide" : true, "ajax" :
-    { "url" : "/Loan/Index" , "type" : "POST" , "contentType" : "application/json" , "data" : function (d) { return
-    JSON.stringify(d); } }, "orderable" : false, "targets" : [4,5,6] }, "columnDefs" : [ { } { "targets" :1, "render" :
-    function (data) { let date=new Date(data); return date.toLocaleDateString("en-US"); } ], columns:[{"data":"loanId"},
-    {"data": "registerDate" }, {"data":"principle"}, {"data":"interestRate"}, {"data": "paymentMethod" },
-    {"data": "description" }, { "data" :"loanId", "render" : function (data, type, row) {
-    return '<a href="/Loan/Details/${data}">details</a>' } } ] }); }); </script>
-
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegsiterDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Installment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Principle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InterestRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegsiterDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Installment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Principle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InterestRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanCategory.LoanCategoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TransactionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
+            </td>
+        </tr>
 }
+    </tbody>
+</table>

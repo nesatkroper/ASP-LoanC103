@@ -34,7 +34,7 @@ ViewData["Title"] = "Details";
     </tr>
     <tr>
       <th>@Html.DisplayName For(model => model.Description)</th>
-      <td class="bg-white">@Html.DisplayFor(model => model. Description)</td>
+      <td class="bg-white">@Html.DisplayFor(model => model.Description)</td>
     </tr>
   </tbody>
 </table>
@@ -61,10 +61,10 @@ ViewData["Title"] = "Details";
         <td>@item?.InterestAmount</td>
         <td>@item?.TotalPayment</td>
         <td>@item?.OutStanding</td>
-        <td><input asp-for="@item!. IsPaid" disabled /></td>
+        <td><input asp-for="@item!.IsPaid" disabled /></td>
         <td>
           <button id="@item!.Id" disabled="@(item.IsPaid)" onclick="GetSchedule(@item?.LoanId, @item?.Id)"
-            class="btn btn-sm @(item!. IsPaid ? "btn-success" : "btn-danger")">
+            class="btn btn-sm @(item!.IsPaid ? "btn-success" : "btn-danger")">
             @item!.IsPaid ? "Paid" : "Recieve")
           </button>
         </td>
@@ -91,7 +91,8 @@ ViewData["Title"] = "Details";
     </div>
   </div>
 </div>
-@section Scripts {
+
+@* @section Scripts {
   <script>
     $(document).ready(function () {
       $("#save").click(function () {
@@ -114,4 +115,4 @@ ViewData["Title"] = "Details";
         });
     }
   </script>
-}
+} *@

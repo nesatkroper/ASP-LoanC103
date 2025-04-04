@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ASPLoanMSC103
 build_property.RootNamespace = ASPLoanMSC103
@@ -130,6 +138,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Loan/Schedule.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxTY2hlZHVsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Loan/ScheduleTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblxTY2hlZHVsZVRhYmxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/T6Y3/ASP.NET Core/ASPLoanMSC103/ASPLoanMSC103/Views/Shared/_Footer.cshtml]

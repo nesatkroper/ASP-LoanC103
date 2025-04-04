@@ -1,7 +1,10 @@
+using ASPLoanC103.Services;
 using ASPLoanMSC103.Data;
 using ASPLoanMSC103.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -19,6 +22,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
   options.AccessDeniedPath = new PathString("/Account/AccessDenied");
   options.ReturnUrlParameter = "ReturnUrl";
 });
+
+// builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores
+
+builder.Services.AddScoped<ILoanServices, LoanServiceImpl>();
+builder.Services.AddScoped<IPaymentService, PaymentServiceImpl>();
+
 
 var app = builder.Build();
 
